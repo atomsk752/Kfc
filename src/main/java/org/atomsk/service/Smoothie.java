@@ -20,7 +20,7 @@ public class Smoothie {
     private Smoothie() {
     }
 
-    public Map<String, String> getProductSmoothie(String table) throws Exception{
+    public TreeMap<String, String> getProductSmoothie(String table) throws Exception{
 
         ArrayList<String> smoothieNameList = new ArrayList<String>();
         ArrayList<String> arrayList = new ArrayList<String>();
@@ -56,6 +56,11 @@ public class Smoothie {
         for (int i = 0; i < smoothieNameList.size(); i++) {
             smoothieMap.put(smoothieKcalList.get(i), smoothieNameList.get(i));
         }
+        TreeMap<String,String> key = new TreeMap<String,String>(smoothieMap);
+
+        Set<String>keyset = smoothieMap.keySet();
+        Iterator<String> keyiterator = key.keySet().iterator();
+
         System.out.println(smoothieMap);
 
 
@@ -85,7 +90,7 @@ public class Smoothie {
 //            idx++;
 //        }
 
-        return smoothieMap;
+        return key;
 
 
 
@@ -93,7 +98,7 @@ public class Smoothie {
 
     public static void main(String[] args) throws Exception {
         Smoothie obj = Smoothie.getInstance();
-        obj.getProductSmoothie("table"); //없어두됨 톰캣에서 처리
+        obj.getProductSmoothie("table");
 
 
     }

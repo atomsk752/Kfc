@@ -28,9 +28,10 @@ public class Smoothielet extends HttpServlet {
 
 
 
-        TreeMap<String,String> smoothieMap = new TreeMap<String,String>();
+        TreeMap<String,String> key = new TreeMap<String,String>();
+
         try {
-            smoothieMap = (TreeMap<String, String>)obj.getProductSmoothie("table");
+            key = (TreeMap<String, String>)obj.getProductSmoothie("table");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,24 +44,24 @@ public class Smoothielet extends HttpServlet {
 
         if(bmi>=0 && bmi<18.5)
         {
-            for(int i=0; i<smoothieMap.size();i++)
-                response.getWriter().print(smoothieMap.values().toArray()[i] + "\t");
+            for(int i=0; i<key.size();i++)
+                response.getWriter().print(key.values().toArray()[i] + "\t");
 
         }
         else if(bmi>=18.5 && bmi<23)
         {
             for(int i=0; i<24 ;i++)
-                response.getWriter().print(smoothieMap.values().toArray()[i] + "\t");
+                response.getWriter().print(key.values().toArray()[i] + "\t");
         }
         else if(bmi>=23 && bmi<25)
         {
             for(int i=0; i<15;i++)
-                response.getWriter().print(smoothieMap.values().toArray()[i] + "\t");
+                response.getWriter().print(key.values().toArray()[i] + "\t");
         }
         else if(bmi>=25 && bmi<30)
         {
             for(int i=0; i<5;i++)
-                response.getWriter().print(smoothieMap.values().toArray()[i] + "\t");
+                response.getWriter().print(key.values().toArray()[i] + "\t");
         }
         else if(bmi>=30)
         {
